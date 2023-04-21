@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/furniture_store?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">123</property>
+    <mapping resource="database/Role.hbm.xml"/>
+    <mapping resource="database/Category.hbm.xml"/>
+    <mapping resource="database/BackendUser.hbm.xml"/>
+    <mapping resource="database/Product.hbm.xml"/>
+    <mapping resource="database/FrontUser.hbm.xml"/>
+    <mapping resource="database/Order.hbm.xml"/>
+    <mapping resource="database/BackendUserLog.hbm.xml"/>
+    <mapping resource="database/SpecifiedFeature.hbm.xml"/>
+    <mapping resource="database/OrderProduct.hbm.xml"/>
+    <mapping resource="database/Image.hbm.xml"/>
+    <mapping resource="database/ProductFeature.hbm.xml"/>
+    <mapping resource="database/Cart.hbm.xml"/>
+    <mapping resource="database/Feature.hbm.xml"/>
+    <mapping resource="database/Supplier.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
