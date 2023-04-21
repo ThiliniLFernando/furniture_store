@@ -1,0 +1,61 @@
+body,html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #eeeeee;
+}
+#sidebar{
+    width: 14.64%;
+    float: left;
+    height: 100%;
+    top: 50px;
+    padding: 0;
+    background-color: #555;
+    /*    #f1f1f1*/
+    position: fixed;
+    overflow-y: auto;
+}
+
+#sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#sidebar li a{
+    display: block;
+    color: whitesmoke;
+    padding: 8px 0 8px 16px;
+    text-decoration: none;
+    border-bottom: #333333 inset 0.5px;
+}
+
+#sidebar li a:hover {
+    background-color: whitesmoke;
+    color: black;
+    cursor: pointer;
+}
+
+#sidebar li a .active{
+    background-color: #666666;
+    color: white;
+}
+
+#panel-container{
+    left: 200px;
+    top: 50px;
+    position: fixed;
+    padding: 5px;
+    width: 85.36%;
+    height: 93.49%;
+    position: fixed;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#search-div{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 0;
+}
