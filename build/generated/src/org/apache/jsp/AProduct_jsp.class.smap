@@ -1,0 +1,16 @@
+SMAP
+AProduct_jsp.java
+JSP
+*S JSP
+*F
++ 0 AProduct.jsp
+AProduct.jsp
++ 1 admin_panel_nav.html
+admin_panel_nav.html
+*L
+5,26:49
+1#1,29:75
+30#0:103
+31:104,3
+32,59:107
+*E
