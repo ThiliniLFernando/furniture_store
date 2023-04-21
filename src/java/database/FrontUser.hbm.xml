@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 18, 2019 4:06:33 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="database.FrontUser" table="front_user" catalog="furniture_store">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="45" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="65535" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="65535" not-null="true" />
+        </property>
+        <property name="dateCreated" type="date">
+            <column name="date_created" length="10" not-null="true" />
+        </property>
+        <property name="dateUpdate" type="date">
+            <column name="date_update" length="10" />
+        </property>
+        <property name="image" type="string">
+            <column name="image" length="65535" />
+        </property>
+        <property name="fuserStatus" type="string">
+            <column name="fuser_status" length="45" not-null="true" />
+        </property>
+        <set name="carts" table="cart" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="front_user_id" not-null="true" />
+            </key>
+            <one-to-many class="database.Cart" />
+        </set>
+        <set name="orders" table="order" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="front_user_id" not-null="true" />
+            </key>
+            <one-to-many class="database.Order" />
+        </set>
+    </class>
+</hibernate-mapping>

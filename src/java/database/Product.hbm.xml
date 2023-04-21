@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 18, 2019 4:06:33 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="database.Product" table="product" catalog="furniture_store">
+        <id name="id" type="string">
+            <column name="id" length="45" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="category" class="database.Category" fetch="select">
+            <column name="pcategory_id" not-null="true" />
+        </many-to-one>
+        <property name="pname" type="string">
+            <column name="pname" length="65535" not-null="true" />
+        </property>
+        <property name="pdesc" type="string">
+            <column name="pdesc" length="65535" />
+        </property>
+        <property name="department" type="string">
+            <column name="department" length="65535" not-null="true" />
+        </property>
+        <property name="price" type="double">
+            <column name="price" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="maxQtyOrderPerDay" type="int">
+            <column name="max_qty_order_per_day" not-null="true" />
+        </property>
+        <property name="psearchName" type="string">
+            <column name="psearch_name" length="65535" not-null="true" />
+        </property>
+        <property name="pstatus" type="string">
+            <column name="pstatus" length="45" not-null="true" />
+        </property>
+        <property name="warrantyDetails" type="string">
+            <column name="warranty_details" length="65535" />
+        </property>
+        <property name="mpsDateCount" type="int">
+            <column name="mps_date_count" not-null="true" />
+        </property>
+        <set name="carts" table="cart" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="product_id" length="45" not-null="true" />
+            </key>
+            <one-to-many class="database.Cart" />
+        </set>
+        <set name="orderProducts" table="order_product" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="product_id" length="45" not-null="true" />
+            </key>
+            <one-to-many class="database.OrderProduct" />
+        </set>
+        <set name="productFeatures" table="product_feature" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="product_id" length="45" not-null="true" />
+            </key>
+            <one-to-many class="database.ProductFeature" />
+        </set>
+        <set name="images" table="image" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="product_id" length="45" not-null="true" />
+            </key>
+            <one-to-many class="database.Image" />
+        </set>
+    </class>
+</hibernate-mapping>

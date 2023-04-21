@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 18, 2019 4:06:33 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="database.OrderProduct" table="order_product" catalog="furniture_store">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="order" class="database.Order" fetch="select">
+            <column name="order_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="product" class="database.Product" fetch="select">
+            <column name="product_id" length="45" not-null="true" />
+        </many-to-one>
+        <property name="orderPrice" type="double">
+            <column name="order_price" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="orderQty" type="int">
+            <column name="order_qty" not-null="true" />
+        </property>
+        <property name="rowTotal" type="double">
+            <column name="row_total" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="rowDiscount" type="java.lang.Double">
+            <column name="row_discount" precision="22" scale="0" />
+        </property>
+        <property name="rowSubTotal" type="double">
+            <column name="row_sub_total" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="opStatus" type="string">
+            <column name="op_status" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

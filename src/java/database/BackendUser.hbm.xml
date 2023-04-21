@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 18, 2019 4:06:33 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="database.BackendUser" table="backend_user" catalog="furniture_store">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="role" class="database.Role" fetch="select">
+            <column name="role_id" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="45" not-null="true" />
+        </property>
+        <property name="username" type="string">
+            <column name="username" length="65535" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="65535" not-null="true" />
+        </property>
+        <property name="dateCreated" type="timestamp">
+            <column name="date_created" length="19" not-null="true" />
+        </property>
+        <property name="dateUpdate" type="timestamp">
+            <column name="date_update" length="19" />
+        </property>
+        <property name="buserStatus" type="string">
+            <column name="buser_status" length="45" not-null="true" />
+        </property>
+        <property name="mobile" type="string">
+            <column name="mobile" length="45" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="65535" />
+        </property>
+        <property name="image" type="string">
+            <column name="image" length="65535" />
+        </property>
+        <set name="backendUserLogs" table="backend_user_log" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="database.BackendUserLog" />
+        </set>
+    </class>
+</hibernate-mapping>
