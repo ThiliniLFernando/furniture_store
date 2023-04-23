@@ -13,3 +13,4 @@ request.onreadystatechange = function() {
 request.open("GET", "LoadDepartment?rc=101", true);
 request.send();
 ```
+In here, LoadDepartment is the Servlet that we send the HTTPRequest and rc=101 is the data that we are send with HTTPRequest as a parameter. In AJAX Request, there are four ready states. 
